@@ -1,0 +1,18 @@
+name: titanic-baseline
+entrypoint: python train.py
+runtime:
+  image: runner-base:py311
+  requirements: requirements.txt
+resources:
+  cpu: 2
+  memory: 4G
+  gpu: false
+  labels: []
+inputs:
+  competitions: [titanic]
+outputs:
+  - submission.csv
+env:
+  SEED: "42"
+mlflow:
+  experiment: titanic-baseline
